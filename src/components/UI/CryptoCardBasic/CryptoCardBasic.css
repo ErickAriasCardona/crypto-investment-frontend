@@ -1,0 +1,27 @@
+.crypto-card-basic{
+    width: 98%;
+    height: 5rem;
+    background-color: #8b949e;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+
+}
+
+.crypto-card-basic p{
+    font-size: 24px;
+
+}
+
+.id-currency{
+    margin-left: 4rem;
+}
+
+.currency-name{
+    font-weight: bold;
+}
+
+.currency-chart{
+    margin-right: 4rem;
+}
