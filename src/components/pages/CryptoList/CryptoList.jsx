@@ -10,7 +10,7 @@ import { CryptoDetails } from '../CryptoDetails/CryptoDetails';
 export const CryptoList = () => {
     const [cryptos, setCryptos] = useState([]);
     const [error, setError] = useState(null);
-    const { cryptoDetails, setCryptoDetails, selectedCryptoId, setSelectedCryptoId, selectedCryptoSymbol, setSelectedCryptoSymbol } = useSection();
+    const { cryptoDetails, setCryptoDetails, selectedCryptoId, setSelectedCryptoId, setSelectedCryptoSymbol } = useSection();
 
     useEffect(() => {
         const fetchCryptos = async () => {
@@ -56,7 +56,7 @@ export const CryptoList = () => {
                         percentChange={crypto.percent_change_24h}
                         volume={crypto.volume_24h}
                         lastUpdated={crypto.last_updated}
-                        onClick={() => handleCryptoDetails(crypto.id, crypto.symbol)} // Aquí pasamos también el symbol
+                        onClick={() => handleCryptoDetails(crypto.id, crypto.symbol)}
                     />
                     {cryptoDetails && selectedCryptoId === crypto.id && (
                         <CryptoDetails />

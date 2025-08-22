@@ -1,4 +1,4 @@
-.crypto-card-basic{
+.crypto-card-basic {
     width: 98%;
     height: 5rem;
     background-color: #8b949e;
@@ -10,18 +10,18 @@
 
 }
 
-.crypto-card-basic p{
+.crypto-card-basic p {
     width: 20%;
     font-size: 24px;
     text-align: center;
 
 }
 
-.currency-name{
+.currency-name {
     font-weight: bold;
 }
 
-.currency-chart{
+.currency-chart {
     margin-right: 4rem;
 }
 

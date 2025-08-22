@@ -5,7 +5,6 @@ import { getCryptoDetails } from '../../../api/crypto';
 import { Line } from 'react-chartjs-2';
 import { Chart, LineElement, PointElement, CategoryScale, LinearScale } from 'chart.js';
 import { getCryptoHistoryDB } from '../../../api/crypto';
-import { color } from 'chart.js/helpers';
 
 Chart.register(LineElement, PointElement, CategoryScale, LinearScale);
 
@@ -39,27 +38,27 @@ export const CryptoDetails = () => {
 
   const data = {
     labels: history?.map(entry => {
-        const date = new Date(entry.date);
-        return date.toLocaleTimeString('es-ES', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-        });
+      const date = new Date(entry.date);
+      return date.toLocaleTimeString('es-ES', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
     }) || [],
     datasets: [{
-        label: 'Precio histórico',
-        data: history?.map(entry => entry.price) || [],
-        fill: false,
-        borderColor: lineColor,
-        tension: 0.2,
+      label: 'Precio histórico',
+      data: history?.map(entry => entry.price) || [],
+      fill: false,
+      borderColor: lineColor,
+      tension: 0.2,
     }],
-};
+  };
 
   const options = {
-    maintainAspectRatio: false, // Esto permite que el gráfico se ajuste al contenedor
+    maintainAspectRatio: false,
     responsive: true,
     scales: {
       x: { grid: { display: true }, ticks: { display: true, color: 'black' } },
-      y: { grid: { display: false }, ticks: { display: true,  color: 'black'} }
+      y: { grid: { display: false }, ticks: { display: true, color: 'black' } }
     }
   };
 

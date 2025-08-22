@@ -23,6 +23,7 @@ export const getRandomCryptos = async () => {
   return res.data;
 };
 
+// nueva funcion para obtener el history desde la API coingecko
 export const getCryptoHistoryCoingecko = async (slug) => {
   const res = await axios.get(`${API_URL}/cryptos/history-coingecko/${slug}`);
   return res.data;
@@ -34,16 +35,19 @@ export const getAllCryptos = async () => {
   return res.data;
 };
 
+// nueva funcion para obtener el history desde la BD
 export const getCryptoHistoryDB = async (symbol) => {
   const res = await axios.get(`${API_URL}/cryptos/history-db/${symbol}`);
   return res.data;
 };
 
+// nueva funcion para obtener los gainers
 export const getGainers = async () => {
   const res = await axios.get(`${API_URL}/cryptos/gainers`);
   return res.data;
 };
 
+// nueva funcion para obtener los losers
 export const getLosers = async () => {
   const res = await axios.get(`${API_URL}/cryptos/losers`);
   return res.data;

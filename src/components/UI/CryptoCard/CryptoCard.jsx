@@ -12,12 +12,11 @@ export const CryptoCard = ({ name, symbol, price, percentChange, history }) => {
   // Determinar el color de la línea basado en el histórico
   const firstPrice = history[0]?.price;
   const lastPrice = history[history.length - 1]?.price;
-  const lineColor = firstPrice && lastPrice 
+  const lineColor = firstPrice && lastPrice
     ? (lastPrice > firstPrice ? "#1c9122ff" : "#d32f2f")
-    : "#8b949e"; // Color por defecto si no hay datos
-
+    : "#8b949e";
   const data = {
-        labels: history?.map(entry => entry.date) || [],
+    labels: history?.map(entry => entry.date) || [],
     datasets: [
       {
         label: 'Precio histórico',

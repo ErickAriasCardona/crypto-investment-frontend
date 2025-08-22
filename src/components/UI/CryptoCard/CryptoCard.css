@@ -1,4 +1,4 @@
-.crypto-card{
+.crypto-card {
     width: 15rem;
     height: 10rem;
     background-color: #8b949e;
@@ -8,25 +8,25 @@
     padding: 1rem;
 }
 
-.nameCurrencie{
+.nameCurrencie {
     width: auto;
     height: auto;
     margin-bottom: 0.5rem;
 
 }
 
-.priceCurrencie{
+.priceCurrencie {
     width: auto;
     height: auto;
     font-size: 24px;
     font-weight: bold;
 }
 
-.percent_change24H{
+.percent_change24H {
     font-weight: bold;
 }
 
-.historical-chart{
+.historical-chart {
     width: 100%;
     height: 5.8rem;
     display: flex;
