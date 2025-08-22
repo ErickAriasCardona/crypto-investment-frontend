@@ -5,22 +5,26 @@ import { Chart, LineElement, PointElement, CategoryScale, LinearScale } from 'ch
 
 Chart.register(LineElement, PointElement, CategoryScale, LinearScale);
 
-
-export const CryptoCard = ({ name, symbol, price, percentChange }) => {
+export const CryptoCard = ({ name, symbol, price, percentChange, history }) => {
   const isPositive = Number(percentChange) > 0;
   const percentColor = isPositive ? "#1c9122ff" : "#d32f2f";
 
+  // Determinar el color de la línea basado en el histórico
+  const firstPrice = history[0]?.price;
+  const lastPrice = history[history.length - 1]?.price;
+  const lineColor = firstPrice && lastPrice 
+    ? (lastPrice > firstPrice ? "#1c9122ff" : "#d32f2f")
+    : "#8b949e"; // Color por defecto si no hay datos
+
   const data = {
-    labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+        labels: history?.map(entry => entry.date) || [],
     datasets: [
       {
         label: 'Precio histórico',
-        data: [2000, 2100, 2050, 2200, 2150, 2250, 2300],
+        data: history.map(entry => entry.price),
         fill: false,
-        // borderColor: percentColor,
-        borderColor: percentColor,
-
-        tension: 0.01,
+        borderColor: lineColor,
+        tension: 0.2,
       },
     ],
   };

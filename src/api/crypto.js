@@ -7,8 +7,8 @@ export const getCryptos = async () => {
   return res.data;
 };
 
-export const getCryptoDetails = async (id) => {
-  const res = await axios.get(`${API_URL}/cryptos/${id}`);
+export const getCryptoDetails = async (symbol) => {
+  const res = await axios.get(`${API_URL}/cryptos/${symbol}`);
   return res.data;
 };
 
@@ -25,5 +25,16 @@ export const getRandomCryptos = async () => {
 
 export const getCryptoHistoryCoingecko = async (slug) => {
   const res = await axios.get(`${API_URL}/cryptos/history-coingecko/${slug}`);
+  return res.data;
+};
+
+// Nueva función para obtener cryptos random
+export const getAllCryptos = async () => {
+  const res = await axios.get(`${API_URL}/cryptos/AllCryptocurrencies`);
+  return res.data;
+};
+
+export const getCryptoHistoryDB = async (symbol) => {
+  const res = await axios.get(`${API_URL}/cryptos/history-db/${symbol}`);
   return res.data;
 };
