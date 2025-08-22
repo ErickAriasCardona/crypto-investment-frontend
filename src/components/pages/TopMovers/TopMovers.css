@@ -29,7 +29,7 @@
     align-items: center;
     gap: 2rem;
     padding-top: 1rem;
-    border-top: 3px solid #8b949e;
+    border-top: 3px solid #ff9800;
     margin-bottom: 1rem;
 }
 
@@ -38,9 +38,34 @@
     width: 34rem;
     height: 10rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: start;
     padding: 1rem;
     background-color: #8b949e;
     border-radius: 0.5rem;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gainers-list, .losers-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+.gainers-list>div,.losers-list>div{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.gainers-list>div>p,.losers-list>div>p{
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    text-align: right;
 }

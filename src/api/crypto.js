@@ -38,3 +38,13 @@ export const getCryptoHistoryDB = async (symbol) => {
   const res = await axios.get(`${API_URL}/cryptos/history-db/${symbol}`);
   return res.data;
 };
+
+export const getGainers = async () => {
+  const res = await axios.get(`${API_URL}/cryptos/gainers`);
+  return res.data;
+};
+
+export const getLosers = async () => {
+  const res = await axios.get(`${API_URL}/cryptos/losers`);
+  return res.data;
+};

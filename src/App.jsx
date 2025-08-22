@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <Header />
         <main>
-          <h2>TopMovers</h2>
+          <h2>Top Movers</h2>
           <TopMovers />
           <h2>Crypto List</h2>
           <CryptoList />

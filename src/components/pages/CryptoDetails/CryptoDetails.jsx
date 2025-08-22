@@ -18,7 +18,6 @@ export const CryptoDetails = () => {
     const fetchHistory = async () => {
       try {
         const data = await getCryptoHistoryDB(selectedCryptoSymbol);
-        console.log(`📊 Histórico detallado de ${selectedCryptoSymbol}:`, data);
         setHistory(data);
       } catch (error) {
         console.error(`Error fetching history for ${selectedCryptoSymbol}:`, error);
@@ -93,19 +92,19 @@ export const CryptoDetails = () => {
 
       <div className="details-currency">
         <div className='detail-item'>
-          <p>Price</p>
+          <p>Price(USD)</p>
           <p className='detail-value'>
             ${cryptoData ? Number(cryptoData.quote.USD.price).toFixed(2) : "0.00"}
           </p>
         </div>
         <div className='detail-item'>
-          <p>%</p>
+          <p>Percent Change 24h</p>
           <p className='detail-value'>
             {cryptoData ? Number(cryptoData.quote.USD.percent_change_24h).toFixed(2) : "0"}%
           </p>
         </div>
         <div className='detail-item'>
-          <p>Volume</p>
+          <p>Volume 24h</p>
           <p className='detail-value'>
             {cryptoData ? Number(cryptoData.quote.USD.volume_change_24h).toFixed(2) : "0.00"}
           </p>
