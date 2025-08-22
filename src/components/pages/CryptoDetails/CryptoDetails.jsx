@@ -5,7 +5,6 @@ import { getCryptoDetails } from '../../../api/crypto';
 import { Line } from 'react-chartjs-2';
 import { Chart, LineElement, PointElement, CategoryScale, LinearScale } from 'chart.js';
 import { getCryptoHistoryDB } from '../../../api/crypto';
-import { color } from 'chart.js/helpers';
 
 Chart.register(LineElement, PointElement, CategoryScale, LinearScale);
 
@@ -18,7 +17,6 @@ export const CryptoDetails = () => {
     const fetchHistory = async () => {
       try {
         const data = await getCryptoHistoryDB(selectedCryptoSymbol);
-        console.log(`📊 Histórico detallado de ${selectedCryptoSymbol}:`, data);
         setHistory(data);
       } catch (error) {
         console.error(`Error fetching history for ${selectedCryptoSymbol}:`, error);
@@ -40,27 +38,27 @@ export const CryptoDetails = () => {
 
   const data = {
     labels: history?.map(entry => {
-        const date = new Date(entry.date);
-        return date.toLocaleTimeString('es-ES', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-        });
+      const date = new Date(entry.date);
+      return date.toLocaleTimeString('es-ES', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
     }) || [],
     datasets: [{
-        label: 'Precio histórico',
-        data: history?.map(entry => entry.price) || [],
-        fill: false,
-        borderColor: lineColor,
-        tension: 0.2,
+      label: 'Precio histórico',
+      data: history?.map(entry => entry.price) || [],
+      fill: false,
+      borderColor: lineColor,
+      tension: 0.2,
     }],
-};
+  };
 
   const options = {
-    maintainAspectRatio: false, // Esto permite que el gráfico se ajuste al contenedor
+    maintainAspectRatio: false,
     responsive: true,
     scales: {
       x: { grid: { display: true }, ticks: { display: true, color: 'black' } },
-      y: { grid: { display: false }, ticks: { display: true,  color: 'black'} }
+      y: { grid: { display: false }, ticks: { display: true, color: 'black' } }
     }
   };
 
@@ -93,19 +91,19 @@ export const CryptoDetails = () => {
 
       <div className="details-currency">
         <div className='detail-item'>
-          <p>Price</p>
+          <p>Price(USD)</p>
           <p className='detail-value'>
             ${cryptoData ? Number(cryptoData.quote.USD.price).toFixed(2) : "0.00"}
           </p>
         </div>
         <div className='detail-item'>
-          <p>%</p>
+          <p>Percent Change 24h</p>
           <p className='detail-value'>
             {cryptoData ? Number(cryptoData.quote.USD.percent_change_24h).toFixed(2) : "0"}%
           </p>
         </div>
         <div className='detail-item'>
-          <p>Volume</p>
+          <p>Volume 24h</p>
           <p className='detail-value'>
             {cryptoData ? Number(cryptoData.quote.USD.volume_change_24h).toFixed(2) : "0.00"}
           </p>
