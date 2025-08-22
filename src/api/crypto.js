@@ -28,7 +28,7 @@ export const getCryptoHistoryCoingecko = async (slug) => {
   return res.data;
 };
 
-// Nueva función para obtener cryptos random
+// Nueva función para obtener cryptos 
 export const getAllCryptos = async () => {
   const res = await axios.get(`${API_URL}/cryptos/AllCryptocurrencies`);
   return res.data;
