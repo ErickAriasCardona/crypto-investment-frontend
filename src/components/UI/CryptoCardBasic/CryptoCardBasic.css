@@ -33,3 +33,34 @@
     align-items: center;
     background-color: #ffffff1e;
 }
+
+
+/* Estilos para tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .historical-chart-list {
+        display: none;
+    }
+
+    .crypto-card-basic p {
+        font-size: 18px;
+    }
+
+
+}
+
+/* Estilos para mobile */
+@media (max-width: 767px) {
+
+    .historical-chart-list,
+    .currency-price,
+    .currency-change,
+    .id-currency {
+        display: none;
+    }
+
+    .crypto-card-basic p {
+        font-size: 18px;
+    }
+
+}

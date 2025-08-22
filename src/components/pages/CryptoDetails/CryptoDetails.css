@@ -62,3 +62,46 @@
     top: -20.5rem;
     right: -1rem;
 }
+
+/* Estilos para tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .container-crypto-details {
+        width: 85%;
+    }
+
+    .close-CryptoDetails {
+        right: -0.5rem;
+    }
+
+}
+
+/* Estilos para mobile */
+@media (max-width: 767px) {
+     .container-crypto-details {
+        width: 80%;
+        height: 29rem;
+    }
+
+    .close-CryptoDetails {
+        top: -29rem;
+        right: -7rem;
+    }
+
+    .historical-chart-detail{
+        width: 80%;
+        height: 10rem;
+    }
+
+    .details-currency {
+        flex-direction: column;
+        align-items: center;
+        margin:0;
+        gap: 1rem;
+    }
+
+    .detail-item{
+        width: auto;
+    }
+
+}
