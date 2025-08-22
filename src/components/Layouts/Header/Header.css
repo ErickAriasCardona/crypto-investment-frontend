@@ -60,3 +60,16 @@
     font-weight: bold;
     margin-right: 1rem;
 }
+
+@media (max-width: 767px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .cryptocurrency-search-engine {
+        width: 90%;
+        margin-top: 1rem;
+    }
+}
