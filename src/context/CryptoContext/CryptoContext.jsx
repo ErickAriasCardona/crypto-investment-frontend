@@ -1,6 +1,26 @@
-const [activeSection, setActiveSection] = useState("home");
+import { createContext, useState, useContext } from 'react';
 
-// Render condicional
-{activeSection === "home" && <Home />}
-{activeSection === "details" && <CryptoDetails />}
-{activeSection === "search" && <Search />}
+const CryptoContext = createContext();
+
+export const CryptoProvider = ({ children }) => {
+    const [cryptoDetails, setCryptoDetails] = useState(false);
+    const [selectedCryptoId, setSelectedCryptoId] = useState(null);
+    const [selectedCryptoSymbol, setSelectedCryptoSymbol] = useState(null);
+
+    return (
+        <CryptoContext.Provider
+            value={{
+                cryptoDetails,
+                setCryptoDetails,
+                selectedCryptoId,
+                setSelectedCryptoId,
+                selectedCryptoSymbol,
+                setSelectedCryptoSymbol
+            }}
+        >
+            {children}
+        </CryptoContext.Provider>
+    );
+};
+
+export const useSection = () => useContext(CryptoContext);

@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import "./TopMovers.css";
 import { CryptoCard } from '../../UI/CryptoCard/CryptoCard';
-import { getRandomCryptos } from '../../../api/crypto';
+import { getRandomCryptos, getCryptoHistoryDB } from '../../../api/crypto';
 
 export const TopMovers = () => {
     const [cryptos, setCryptos] = useState([]);
 
     useEffect(() => {
         const fetchCryptos = async () => {
-            const data = await getRandomCryptos();
-            setCryptos(data);
+            try {
+                const data = await getRandomCryptos();
+                // Obtener el histórico para cada moneda
+                const cryptosWithHistory = await Promise.all(
+                    data.slice(0, 4).map(async (crypto) => {
+                        const history = await getCryptoHistoryDB(crypto.symbol);
+                        return { ...crypto, history };
+                    })
+                );
+                setCryptos(cryptosWithHistory);
+            } catch (error) {
+                console.error('❌ Error fetching cryptos:', error);
+                setCryptos([]);
+            }
         };
+
         fetchCryptos();
-        const interval = setInterval(fetchCryptos, 15000); // Cambiado a 15 segundos
+        const interval = setInterval(fetchCryptos, 15000);
         return () => clearInterval(interval);
     }, []);
 
@@ -26,6 +39,7 @@ export const TopMovers = () => {
                         symbol={crypto.symbol}
                         price={crypto.last_price}
                         percentChange={crypto.percent_change_24h}
+                        history={crypto.history}
                     />
                 ))}
             </div>

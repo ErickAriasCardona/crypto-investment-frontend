@@ -5,17 +5,16 @@
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 10rem;
+    gap: 5rem;
+    justify-content: space-around;
 
 }
 
 .crypto-card-basic p{
+    width: 20%;
     font-size: 24px;
+    text-align: center;
 
-}
-
-.id-currency{
-    margin-left: 4rem;
 }
 
 .currency-name{
@@ -24,4 +23,13 @@
 
 .currency-chart{
     margin-right: 4rem;
+}
+
+.historical-chart-list {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: #ffffff1e;
 }
